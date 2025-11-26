@@ -22,6 +22,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        actionsPadding: EdgeInsets.only(right: 8),
+        actions: [
+          IconButton(
+            onPressed: resetarcampos,
+            icon: Icon(Icons.refresh, color: Colors.white),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Color(0XFF1c1e26),
         title: Text(
@@ -45,8 +52,8 @@ class _HomePageState extends State<HomePage> {
               value: peso,
               onChanged: (v) => setState(() => peso = v),
 
-              min: 30,
-              max: 180,
+              min: 0,
+              max: 200,
             ),
             CardValue(
               label: "Altura(m)",
@@ -62,6 +69,23 @@ class _HomePageState extends State<HomePage> {
                 setState(() {
                   if (altura <= 0) {
                     status = "Altura deve ser maior que zero!";
+                    corresult = Colors.red;
+                    imc = 0.0;
+                    return;
+                  }
+                  if (peso <= 0) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          "Peso inválido!",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    );
                     corresult = Colors.red;
                     imc = 0.0;
                     return;
@@ -95,5 +119,14 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  resetarcampos() {
+    setState(() {
+      peso = 70;
+      altura = 1.70;
+      imc = 0.0;
+      status = "";
+    });
   }
 }
