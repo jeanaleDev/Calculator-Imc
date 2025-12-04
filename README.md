@@ -1,12 +1,12 @@
-# imccloneweb2
+Porjeto-Calculadora IMC-Slider
 
-A new Flutter project.
+Flutter project.
+Este projeto é uma calculadora de IMC desenvolvida em Flutter, com foco em boas práticas e interface moderna .
+O usuário consegue:
 
-## Getting Started
+Inserir peso e altura com widget "slider".
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
+Ver o cálculo do IMC com classificação
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
